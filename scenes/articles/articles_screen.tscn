@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi78qdx16ohot"]
+
+[ext_resource type="Script" uid="uid://cornycls6tw1k" path="res://scripts/ui/articles/articles_screen.gd" id="1_nlun0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nlun0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(680, 0)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 708.0
+offset_bottom = 1088.0
+
+[node name="name_input" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+alignment = 1
+max_length = 35
+caret_blink = true
+caret_blink_interval = 0.4
+
+[node name="category_select" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="add_btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Agregar articulo
+"
+
+[node name="VScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 810)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="list_container" type="VBoxContainer" parent="VBoxContainer/VScrollContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/VScrollContainer/list_container"]
+show_behind_parent = true
+custom_minimum_size = Vector2(680, 810)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/add_btn" to="." method="_on_add_btn_pressed"]

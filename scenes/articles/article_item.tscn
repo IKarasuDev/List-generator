@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://wgcw0l115rxw"]
+
+[ext_resource type="Script" uid="uid://d0rg0t3sdpbj1" path="res://scripts/ui/articles/article_item.gd" id="1_phque"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(690, 0)
+offset_right = 670.0
+offset_bottom = 60.0
+script = ExtResource("1_phque")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(690, 80)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 628.0
+offset_bottom = 68.0
+
+[node name="name" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Jamon"
+
+[node name="category" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "carne"
+
+[node name="delete_btn" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 624.0
+offset_top = 8.0
+offset_right = 684.0
+offset_bottom = 68.0
+text = "Borrar"
+
+[connection signal="pressed" from="Panel/delete_btn" to="." method="_on_delete_btn_pressed"]

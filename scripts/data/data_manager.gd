@@ -17,7 +17,7 @@ func _ready():
 # =========================
 func load_data():
 	if not FileAccess.file_exists(FILE_PATH):
-		save_data() # crea archivo vacío
+		save_data()
 		return
 
 	var file = FileAccess.open(FILE_PATH, FileAccess.READ)
@@ -30,11 +30,10 @@ func load_data():
 
 	var json = JSON.parse_string(content)
 
-	if json == null:
+	if json == null or typeof(json) != TYPE_ARRAY:
 		articles = []
 	else:
 		articles = json
-
 
 func save_data():
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
@@ -84,8 +83,9 @@ func update_article(id: int, nombre: String, categoria: String):
 
 func _generate_id() -> int:
 	var max_id = 0
+	
 	for article in articles:
-		if article["id"] > max_id:
+		if article.has("id") and article["id"] > max_id:
 			max_id = article["id"]
 
 	return max_id + 1
