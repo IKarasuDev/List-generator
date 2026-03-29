@@ -8,6 +8,12 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_a5gue")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.10167358, 0.10167361, 0.10167358, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(680, 1000)
 layout_mode = 0
@@ -33,7 +39,19 @@ custom_minimum_size = Vector2(680, 800)
 layout_mode = 2
 
 [node name="generate_btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Generar Lista"
 
+[node name="go_back" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 65.0
+offset_bottom = 63.0
+text = "Atras"
+
 [connection signal="pressed" from="VBoxContainer/generate_btn" to="." method="_on_generate_btn_pressed"]
+[connection signal="pressed" from="go_back" to="." method="_on_go_back_pressed"]

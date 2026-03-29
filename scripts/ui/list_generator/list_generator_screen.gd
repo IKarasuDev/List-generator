@@ -1,5 +1,7 @@
 extends Control
 
+signal go_back
+
 const SelectableItem = preload("res://scenes/list_generator/selectable_item.tscn")
 
 @onready var items_container = $VBoxContainer/ScrollContainer/items_container
@@ -45,6 +47,15 @@ func add_to_list(article: Dictionary):
 func _on_generate_btn_pressed():
 	var grouped = _group_articles(selected_articles)
 	print(grouped)  # por ahora solo debug
+	if selected_articles.is_empty():
+		print("No hay artículos seleccionados")
+		return
+
+	var modal_scene = preload("res://scenes/list_generator/result_modal.tscn")
+	var modal = modal_scene.instantiate()
+
+	add_child(modal)
+	modal.setup(selected_articles)
 
 
 func _group_articles(data: Dictionary) -> Dictionary:
@@ -59,3 +70,7 @@ func _group_articles(data: Dictionary) -> Dictionary:
 		grouped[cat].append(article["nombre"])
 
 	return grouped
+
+
+func _on_go_back_pressed() -> void:
+	emit_signal("go_back")

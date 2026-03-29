@@ -11,6 +11,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nlun0")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.10167358, 0.10167361, 0.10167358, 1)
+
+[node name="input" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 696.0
+offset_bottom = 136.0
+color = Color(0.1477958, 0.7396311, 0.70910347, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(680, 0)
 layout_mode = 0
@@ -53,4 +67,11 @@ show_behind_parent = true
 custom_minimum_size = Vector2(680, 810)
 layout_mode = 2
 
+[node name="to_list_generator" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Generar Lista"
+
 [connection signal="pressed" from="VBoxContainer/add_btn" to="." method="_on_add_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/to_list_generator" to="." method="_on_to_list_generator_pressed"]

@@ -1,5 +1,7 @@
 extends Control
 
+signal go_to_list_generator
+
 const ArticleItem = preload("res://scenes/articles/article_item.tscn")
 
 @onready var name_input = $VBoxContainer/name_input
@@ -42,3 +44,6 @@ func refresh_list():
 		var item = ArticleItem.instantiate()
 		list_container.add_child(item)   # ✅ PRIMERO agregar
 		item.setup(article, self)        # ✅ DESPUÉS setup
+
+func _on_to_list_generator_pressed() -> void:
+	emit_signal("go_to_list_generator")
