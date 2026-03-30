@@ -48,8 +48,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 
 [node name="add_btn" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Agregar articulo
 "
 
@@ -73,5 +74,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Generar Lista"
 
+[connection signal="text_submitted" from="VBoxContainer/name_input" to="." method="_on_name_input_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/add_btn" to="." method="_on_add_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/to_list_generator" to="." method="_on_to_list_generator_pressed"]

@@ -13,7 +13,7 @@ config_version=5
 config/name="ListGenerator"
 run/main_scene="uid://1lirorv71td1"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://vl7cqtlwbs6h"
 
 [autoload]
 
@@ -29,3 +29,4 @@ window/handheld/orientation=1
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

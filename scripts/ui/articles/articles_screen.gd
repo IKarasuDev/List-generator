@@ -9,10 +9,13 @@ const ArticleItem = preload("res://scenes/articles/article_item.tscn")
 @onready var category_select = $VBoxContainer/category_select
 
 func _ready():
+	category_select.add_item("Carnes")
 	category_select.add_item("Carnes frias")
 	category_select.add_item("Congelados")
 	category_select.add_item("Verduras")
 	category_select.add_item("Desechables")
+	category_select.add_item("Tortillas")
+	category_select.add_item("Otros")
 
 	
 	refresh_list()
@@ -29,9 +32,10 @@ func _on_add_btn_pressed():
 	DataManager.add_article(name, category)
 
 	name_input.text = ""
-	category_select.select(0)
 
 	refresh_list()
+
+	name_input.grab_focus()  # 👈 UX fluido
 
 
 func refresh_list():
@@ -47,3 +51,7 @@ func refresh_list():
 
 func _on_to_list_generator_pressed() -> void:
 	emit_signal("go_to_list_generator")
+
+
+func _on_name_input_text_submitted(new_text: String) -> void:
+	_on_add_btn_pressed()
